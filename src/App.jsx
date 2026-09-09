@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import { GoPlus } from "react-icons/go";
-import { CiSearch } from "react-icons/ci";
 import { BiBell } from "react-icons/bi";
-import { CiBellOn } from "react-icons/ci";
+import { CiSearch, CiUser, CiBellOn } from "react-icons/ci";
 import { FaLocationDot, FaPlus, FaUser } from "react-icons/fa6";
 import { LuWind } from "react-icons/lu";
 import { WiStrongWind, WiNightCloudy, WiNightAltCloudyHigh, WiCloudy, WiNightRainWind, WiRainWind, WiSmoke, WiSleet, WiNightSleet, WiFog, WiThunderstorm, WiStormShowers } from "react-icons/wi";
@@ -551,6 +550,7 @@ function App() {
                   onClick={() => {
                     setShowPlusMenu(!showPlusMenu);
                     setShowNotification(false);
+                    setShowProfileMenu(false);
                   }}
                 >
                   <GoPlus />
@@ -588,6 +588,7 @@ function App() {
                   onClick={() => {
                     setShowNotification(!showNotification);
                     setShowPlusMenu(false);
+                    setShowProfileMenu(false);
                   }}
                 >
                   <CiBellOn />
@@ -633,12 +634,16 @@ function App() {
 
                 <div
                   className="profile"
-                  onClick={() => setShowProfileMenu(!showProfileMenu)}
+                  onClick={() => {
+                    setShowProfileMenu(!showProfileMenu);
+                    setShowPlusMenu(false);
+                    setShowNotification(false);
+                  }}
                 >
                   {profileImage ? (
                     <img src={profileImage} alt="Profile" />
                   ) : (
-                    <FaUser className="default-user-icon" />
+                    <CiUser className="default-user-icon" />
                   )}
                 </div>
 
