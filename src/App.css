@@ -78,6 +78,159 @@
     color: #777;
 }
 
+
+
+.profile-wrapper {
+    position: relative;
+    z-index: 1000;
+}
+
+.profile {
+    cursor: pointer;
+}
+
+.profile-menu {
+    position: absolute;
+    top: 48px;
+    right: 0;
+
+    width: 150px;
+    padding: 8px;
+
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+
+    border-radius: 12px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+
+    z-index: 9999;
+}
+
+.profile-menu-item {
+    width: 100%;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 0 10px;
+
+    border-radius: 8px;
+
+    color: #222;
+    font-size: 12px;
+
+    cursor: pointer;
+
+    background: transparent !important;
+}
+
+.profile-menu-item:hover {
+    background: rgba(0, 0, 0, 0.08) !important;
+}
+
+.profile-menu-item svg {
+    font-size: 14px;
+}
+
+.profile-menu-item.logout {
+    color: #e53935;
+}
+
+
+
+
+
+
+.plus-wrapper,
+.bell-wrapper {
+    position: relative;
+    z-index: 1000;
+}
+
+.plus-menu,
+.notification-menu {
+    position: absolute;
+    top: 48px;
+    right: 0;
+    z-index: 9999;
+
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+.plus-menu-item {
+    width: 100%;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 0 10px;
+    border-radius: 8px;
+
+    color: #222 !important;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.plus,
+.bell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.plus-menu-item span {
+    color: #222 !important;
+}
+
+.plus-menu {
+    width: 210px;
+    padding: 8px;
+}
+
+.notification-menu {
+    width: 270px;
+    padding: 12px;
+}
+
+.notification-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+
+    color: #222;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.notification-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px 5px;
+    color: #222;
+}
+
+.notification-item strong {
+    font-size: 12px;
+}
+
+.notification-item p {
+    margin: 3px 0 0;
+    color: #777;
+    font-size: 11px;
+}
+
 .name-input-div {
     width: 100%;
 
@@ -353,7 +506,7 @@ nav {
     gap: 12px;
 }
 
-.icons-div div {
+.icons-div>div {
     width: 38px;
     height: 38px;
     border-radius: 50%;

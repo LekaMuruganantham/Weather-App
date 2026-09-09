@@ -40,6 +40,9 @@ function App() {
   const [error, setError] = useState("");
   const [closing, setClosing] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [showProfileMenu, setShowProfileMenu] = useState(false);
+  const [showPlusMenu, setShowPlusMenu] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
   const [loadingCity, setLoadingCity] = useState("");
   const [searchedCity, setSearchedCity] = useState("");
   const isMobile = window.innerWidth <= 768;
@@ -307,6 +310,32 @@ function App() {
     setShowProfileForm(false);
   };
 
+  const handleEditProfile = () => {
+    setTempFirstName(firstName);
+    setTempLastName(lastName);
+    setTempImage(profileImage);
+
+    setShowProfileMenu(false);
+    setShowProfileForm(true);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("firstName");
+    localStorage.removeItem("lastName");
+    localStorage.removeItem("profileImage");
+
+    setFirstName("");
+    setLastName("");
+    setProfileImage("");
+
+    setTempFirstName("");
+    setTempLastName("");
+    setTempImage("");
+
+
+    setShowProfileMenu(false);
+    setShowProfileForm(true);
+  };
 
   const getWeatherIcon = (weather) => {
     switch (weather) {
@@ -515,21 +544,123 @@ function App() {
               </div>
             )}
             <div className='icons-div'>
-              <div className='plus'>
-                <GoPlus />
+              <div className="plus-wrapper">
+
+                <div
+                  className="plus"
+                  onClick={() => {
+                    setShowPlusMenu(!showPlusMenu);
+                    setShowNotification(false);
+                  }}
+                >
+                  <GoPlus />
+                </div>
+
+                {showPlusMenu && (
+                  <div className="plus-menu">
+
+                    <div className="plus-menu-item">
+                      <span>⭐</span>
+                      <span>Add Favorite City</span>
+                    </div>
+
+                    <div className="plus-menu-item">
+                      <span>📍</span>
+                      <span>My Location</span>
+                    </div>
+
+                    <div className="plus-menu-item">
+                      <span>🔄</span>
+                      <span>Refresh Weather</span>
+                    </div>
+
+                  </div>
+                )}
+
               </div>
               <div className='search' onClick={getWeather}>
                 <CiSearch />
               </div>
-              <div className='bell'>
-                <CiBellOn />
-              </div>
-              <div className='profile'>
+              <div className="bell-wrapper">
 
-                {profileImage ? (
-                  <img src={profileImage} alt="Profile" />
-                ) : (
-                  <FaUser className="default-user-icon" />
+                <div
+                  className="bell"
+                  onClick={() => {
+                    setShowNotification(!showNotification);
+                    setShowPlusMenu(false);
+                  }}
+                >
+                  <CiBellOn />
+                </div>
+
+                {showNotification && (
+                  <div className="notification-menu">
+
+                    <div className="notification-title">
+                      <CiBellOn />
+                      <span>Weather Alerts</span>
+                    </div>
+
+                    <div className="notification-item">
+                      <span>🌧️</span>
+                      <div>
+                        <strong>Rain Alert</strong>
+                        <p>Rain may occur today</p>
+                      </div>
+                    </div>
+
+                    <div className="notification-item">
+                      <span>🌡️</span>
+                      <div>
+                        <strong>Temperature Alert</strong>
+                        <p>High temperature expected</p>
+                      </div>
+                    </div>
+
+                    <div className="notification-item">
+                      <span>💨</span>
+                      <div>
+                        <strong>Wind Alert</strong>
+                        <p>Strong winds may occur</p>
+                      </div>
+                    </div>
+
+                  </div>
+                )}
+
+              </div>
+              <div className="profile-wrapper">
+
+                <div
+                  className="profile"
+                  onClick={() => setShowProfileMenu(!showProfileMenu)}
+                >
+                  {profileImage ? (
+                    <img src={profileImage} alt="Profile" />
+                  ) : (
+                    <FaUser className="default-user-icon" />
+                  )}
+                </div>
+
+                {showProfileMenu && (
+                  <div className="profile-menu">
+
+                    <div
+                      className="profile-menu-item"
+                      onClick={handleEditProfile}
+                    >
+                      <FaUser />
+                      <span>Edit Profile</span>
+                    </div>
+
+                    <div
+                      className="profile-menu-item logout"
+                      onClick={handleLogout}
+                    >
+                      <span>Log Out</span>
+                    </div>
+
+                  </div>
                 )}
 
               </div>
