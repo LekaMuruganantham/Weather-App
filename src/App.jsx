@@ -538,8 +538,10 @@ function App() {
               autoCapitalize="off"
               autoComplete="off" />
             {error && (
-              <div className={`error-box ${closing ? "error-box-hide" : ""}`}>
-                {error} <div className='wrongIcon-div' onClick={closeError}><FaPlus className='wrongIcon' /></div>
+              <div className="error-wrapper">
+                <div className={`error-box ${closing ? "error-box-hide" : ""}`}>
+                  {error} <div className='wrongIcon-div' onClick={closeError}><FaPlus className='wrongIcon' /></div>
+                </div>
               </div>
             )}
             <div className='icons-div'>
