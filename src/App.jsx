@@ -12,7 +12,7 @@ import { IoSunnyOutline, IoCloudyOutline, IoSnowOutline, IoCloud } from "react-i
 import { TbCloudStorm, TbMist } from "react-icons/tb";
 
 
-import image from './myphoto.png'
+
 import broken_cloud from './broken cloud.mp4'
 import clear_sky from './clear sky.mp4'
 import few_clouds from './few clouds.mp4'
