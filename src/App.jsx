@@ -545,6 +545,9 @@ function App() {
               </div>
             )}
             <div className='icons-div'>
+              <div className='search' onClick={getWeather}>
+                <CiSearch />
+              </div>
               <div className="plus-wrapper">
 
                 <div
@@ -580,9 +583,7 @@ function App() {
                 )}
 
               </div>
-              <div className='search' onClick={getWeather}>
-                <CiSearch />
-              </div>
+
               <div className="bell-wrapper">
 
                 <div
