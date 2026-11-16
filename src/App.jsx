@@ -25,7 +25,7 @@ import rain from './rain.mp4'
 import thunderstorm from './thunderstorm.mp4'
 import snow from './snow.mp4'
 import drizzle from './drizzle.mp4'
-import mist from './mist.mp4'
+import haze from './haze.mp4'
 
 
 
@@ -229,7 +229,7 @@ function App() {
     videoClass = "bg-image";
   }
   else if (main === "Mist") {
-    currentVideo = mist;
+    currentVideo = mist_cloud;
     videoClass = "bg-image";
   }
   else if (main === "Fog") {
@@ -237,7 +237,7 @@ function App() {
     videoClass = "bg-image";
   }
   else if (main === "Haze") {
-    currentVideo = mist_cloud;
+    currentVideo = haze;
     videoClass = "bg-image";
   }
 
