@@ -229,7 +229,7 @@ function App() {
     videoClass = "bg-image";
   }
   else if (main === "Mist") {
-    currentVideo = mist_cloud;
+    currentVideo = mist;
     videoClass = "bg-image";
   }
   else if (main === "Fog") {
