@@ -25,7 +25,7 @@ import rain from './rain.mp4'
 import thunderstorm from './thunderstorm.mp4'
 import snow from './snow.mp4'
 import drizzle from './drizzle.mp4'
-
+import mist from './mist.mp4'
 
 
 
